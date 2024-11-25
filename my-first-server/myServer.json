@@ -1,0 +1,74 @@
+[
+  {
+    "id": "server-001",
+    "server": {
+      "host": "localhost",
+      "port": 3000
+    },
+    "database": {
+      "host": "localhost",
+      "port": 27017,
+      "name": "myDatabase"
+    },
+    "security": {
+      "jwtSecret": "yourSecretKeyHere",
+      "jwtExpiration": "1h"
+    },
+    "logging": {
+      "level": "info",
+      "logFile": "./logs/server-001.log"
+    },
+    "api": {
+      "version": "v1",
+      "baseUrl": "/api/v1"
+    }
+  },
+  {
+    "id": "server-002",
+    "server": {
+      "host": "localhost",
+      "port": 4000
+    },
+    "database": {
+      "host": "localhost",
+      "port": 27018,
+      "name": "mySecondDatabase"
+    },
+    "security": {
+      "jwtSecret": "anotherSecretKeyHere",
+      "jwtExpiration": "2h"
+    },
+    "logging": {
+      "level": "debug",
+      "logFile": "./logs/server-002.log"
+    },
+    "api": {
+      "version": "v1",
+      "baseUrl": "/api/v2"
+    }
+  },
+  {
+    "id": "server-003",
+    "server": {
+      "host": "localhost",
+      "port": 5000
+    },
+    "database": {
+      "host": "localhost",
+      "port": 27019,
+      "name": "myThirdDatabase"
+    },
+    "security": {
+      "jwtSecret": "differentSecretKeyHere",
+      "jwtExpiration": "3h"
+    },
+    "logging": {
+      "level": "warn",
+      "logFile": "./logs/server-003.log"
+    },
+    "api": {
+      "version": "v1",
+      "baseUrl": "/api/v3"
+    }
+  }
+]
