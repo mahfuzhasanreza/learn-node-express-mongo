@@ -26,6 +26,18 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+
+    const database = client.db("usersDB");
+    const userCollection = database.collection("users");
+
+    app.post('/users', async (req, res) => {
+      const user = req.body;
+      console.log('new user', user);
+      const result = await userCollection.insertOne(user);
+      res.send(result);
+    });
+
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -38,9 +50,9 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Simple CRUD is running');
+  res.send('Simple CRUD is running');
 })
 
 app.listen(port, () => {
-    console.log(`Simple CRUD is running on port: ${port}`);
+  console.log(`Simple CRUD is running on port: ${port}`);
 })
